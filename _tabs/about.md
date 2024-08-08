@@ -6,7 +6,7 @@ order: 4
 
 # Zhiyin Chen (陈智殷)
 ## Basic Infomation
-> Hi, this is Zhiyin. I'm documenting my learning notes and technical summary in this blog. Besides, I'm a cloud software development engineer at Intel. Currently, my work mainly is performance analysis and optimization for the software on Intel CPU.
+> Hi, this is Zhiyin. I'm documenting my learning notes and technical summary in this blog. Besides, I'm a cloud software development engineer at Intel. Currently, my work mainly is performance analysis and optimization for the software on Intel CPU. In my life, I like hiking, camping and photography.
 
 * Email: cknight@foxmail.com
 
