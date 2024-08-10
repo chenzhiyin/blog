@@ -42,6 +42,7 @@ void cal(){
 ```
 ### Performance Result
 * v0
+
 ```
 time ./v0
 
@@ -51,6 +52,7 @@ sys     0m0.121s
 ```
 
 * v1
+
 ```
 time ./v1
 
@@ -60,6 +62,7 @@ sys     0m0.107s
 ```
 ### Performance Analysis
 * v0
+
 ```
 perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v0
 
@@ -74,6 +77,7 @@ Performance counter stats for './v0':
 ```
 
 * v1
+
 ```
 perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v1
 
@@ -127,9 +131,11 @@ void cal(){
   }
 }
 ```
+
 对以上代码重复调用cal函数100次。
 ### Performance Result
 * v0
+
 ```
 time ./v0
 
@@ -139,6 +145,7 @@ sys     0m0.084s
 ```
 
 * v1
+
 ```
 time ./v1
 
@@ -148,6 +155,7 @@ sys     0m0.073s
 ```
 ### Performance Analysis
 * v0
+
 ```
 perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v0
 
@@ -162,6 +170,7 @@ perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v0
 ```
 
 * v1
+
 ```
 perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v1
 
