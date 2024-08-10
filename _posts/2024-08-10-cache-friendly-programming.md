@@ -7,7 +7,6 @@ math: true
 ---
 ## Loop Interchange
 
-### Code
 * v0
 ```c
 #define N (1024*4)  // 4K
@@ -98,7 +97,6 @@ Performance counter stats for './v1':
 实际上，CPU的L1 cache line是以64B为最小单位来管理缓存的。这样，当某次“c[i][j] += a[i][k] * b[k][j]”计算造成了CPU L1 cache miss后，相应的数据片段（64字节）会被load到cache中，这样下次计算如果用到数据的内存地址是连续的，就不会再发生cache miss。所以，可以看到，优化后的v1版本L1-DCACHE-LOAD-MISS发生次数减少了99.9%以上。这就是为什么v1版本最终性能有如此大的提高。
 
 ## Tiling
-### Code
 * v0
 ```c
 #define N (1024*4)  // 4K
