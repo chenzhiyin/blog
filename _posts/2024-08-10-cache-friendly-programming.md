@@ -6,6 +6,7 @@ tags: [optimization, cache]
 math: true
 ---
 ## Loop Interchange
+
 ### Code
 * v0
 ```c
@@ -40,6 +41,7 @@ void cal(){
   }
 }
 ```
+
 ### Performance Result
 * v0
 
@@ -60,6 +62,7 @@ real    2m8.837s
 user    2m8.564s
 sys     0m0.107s
 ```
+
 ### Performance Analysis
 * v0
 
@@ -133,6 +136,7 @@ void cal(){
 ```
 
 对以上代码重复调用cal函数100次。
+
 ### Performance Result
 * v0
 
@@ -153,6 +157,7 @@ real    0m2.878s
 user    0m2.793s
 sys     0m0.073s
 ```
+
 ### Performance Analysis
 * v0
 
