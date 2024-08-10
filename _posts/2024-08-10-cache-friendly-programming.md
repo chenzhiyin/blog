@@ -1,5 +1,5 @@
 ---
-title: 性能分析与优化：CPU Cache
+title: 性能分析与优化：Locality of CPU Cache
 date: 2024-08-10 20:01:40 +0800
 categories: [Performance Optimization]
 tags: [optimization, cache]
