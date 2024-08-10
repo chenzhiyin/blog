@@ -1,5 +1,5 @@
 ---
-title: 性能分析优化：更好利用CPU Cache和Memory
+title: 性能分析与优化：更好地利用CPU Cache
 date: 2024-08-10 20:01:40 +0800
 categories: [Performance Optimization]
 tags: [optimization, cache]
