@@ -42,7 +42,7 @@ void cal(){
 ```
 ### Performance Result
 * v0
-```bash
+```
 time ./v0
 
 real    3m30.171s
@@ -51,7 +51,7 @@ sys     0m0.121s
 ```
 
 * v1
-```bash
+```
 time ./v1
 
 real    2m8.837s
@@ -60,7 +60,7 @@ sys     0m0.107s
 ```
 ### Performance Analysis
 * v0
-```shell
+```
 perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v0
 
 Performance counter stats for './v0':
@@ -74,7 +74,7 @@ Performance counter stats for './v0':
 ```
 
 * v1
-```bash
+```
 perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v1
 
 Performance counter stats for './v1':
@@ -130,7 +130,7 @@ void cal(){
 对以上代码重复调用cal函数100次。
 ### Performance Result
 * v0
-```bash
+```
 time ./v0
 
 real    0m5.493s
@@ -139,7 +139,7 @@ sys     0m0.084s
 ```
 
 * v1
-```bash
+```
 time ./v1
 
 real    0m2.878s
@@ -148,7 +148,7 @@ sys     0m0.073s
 ```
 ### Performance Analysis
 * v0
-```bash
+```
 perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v0
 
  Performance counter stats for './v0':
@@ -162,7 +162,7 @@ perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v0
 ```
 
 * v1
-```bash
+```
 perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v1
 
  Performance counter stats for './v1':
