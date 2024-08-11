@@ -228,6 +228,7 @@ perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v1
 ```
 在本例中，通过对数组切片，来保证了数据访问的**时间局部性**，从而减少cache的miss次数。
 虽然b[j][i]和b[j+1][i]不在同一条cacheline上，但是b[j][i]不会立即从L1 Data Cache中淘汰，只要b[j][i+1]计算和b[j][i]计算的时间相近（取决与CPU L1 DATA CACHE大小），b[j][i]相应的cache line就会在b[j][i+1]计算时，被CPU使用。因此本例通过切片，缩短了同一cache line上数据被CPU使用的距离。
-时间局部性也被称为"Reuse Distances"(<https://easyperf.net/blog/2024/02/12/Memory-Profiling-Part5>)
+
+时间局部性也被称为"Reuse Distances" (<https://easyperf.net/blog/2024/02/12/Memory-Profiling-Part5>)
 
 实际上，除了基于L1 DATA CACHE的优化，基于L1 INSTRUCTION CACHE也有优化措施。例如在量化场景，为了能够减少交易决策执行的时延，可以周期性地调用关键代码，使其保留在cache中。这样，当真正需要成交时，能够降低相关代码的执行时延。
