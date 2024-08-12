@@ -133,7 +133,9 @@ Performance counter stats for './v1':
 ```
 
 可以发现，交换循环层次的次序后，改善代码的**空间局部性**。该代码片段性能有超过50%的提升。
+
 原因在于，v0中，最内层次的循环k表示二维数组b的列下标，因此相邻两次计算中，数组b中参与计算的元素是不连续的，内存地址相差8*1024*4个字节。v1中，最内层次的循环j表示二维数组a和c的行下标。在相邻两次的计算中，c[i][j]/c[i][j+1], b[k][j]/b[k][j+1]的内存地址都是连续的。更符合缓存空间局部性原理。因此性能更好。
+
 实际上，CPU的L1 cache line是以64B为最小单位来管理缓存的。这样，当某次“c[i][j] += a[i][k] * b[k][j]”计算造成了CPU L1 cache miss后，相应的数据片段（64字节）会被load到cache中，这样下次计算如果用到数据的内存地址是连续的，就不会再发生cache miss。所以，可以看到，优化后的v1版本L1-DCACHE-LOAD-MISS发生次数减少了99.9%以上。这就是为什么v1版本最终性能有如此大的提高。
 
 ## **Blocking（分块）**
@@ -227,6 +229,7 @@ perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores -- ./v1
 
 ```
 在本例中，通过对数组切片，来保证了数据访问的**时间局部性**，从而减少cache的miss次数。
+
 虽然b[j][i]和b[j+1][i]不在同一条cacheline上，但是b[j][i]不会立即从L1 Data Cache中淘汰，只要b[j][i+1]计算和b[j][i]计算的时间相近（取决与CPU L1 DATA CACHE大小），b[j][i]相应的cache line就会在b[j][i+1]计算时，被CPU使用。因此本例通过切片，缩短了同一cache line上数据被CPU使用的距离。
 
 时间局部性也被称为"Reuse Distances" (<https://easyperf.net/blog/2024/02/12/Memory-Profiling-Part5>)
